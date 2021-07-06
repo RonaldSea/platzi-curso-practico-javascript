@@ -1,43 +1,15 @@
 // Código del cuadrado
-console.group("Cuadrado");
-const ladoCuadrado = 5;
-console.log(`Los lados del cuadrado miden: ${ladoCuadrado} cms.`);
-
-const perimetroCuadrado = ladoCuadrado *4;
-console.log(`El perímetro del cuadrado es: ${perimetroCuadrado} cms.`);
-
-const areaCuadrado = ladoCuadrado * ladoCuadrado;
-console.log(`El área del cuadrado es: ${areaCuadrado} cms cuadrados`)
-console.groupEnd();
+const perimetroCuadrado = lado => lado * 4;
+const areaCuadrado = lado => lado * lado;
 
 // Código del triángulo
-console.group("Triángulo");
-const ladoTriangulo1 = 3;
-const ladoTriangulo2 = ladoTriangulo1;
-const baseTriangulo = 2;
-const alturaTriangulo = Math.sqrt(ladoTriangulo1**2 - baseTriangulo**2/4).toFixed(2);
-console.log(`Los lados del triángulo miden: ${ladoTriangulo1} cms, ${ladoTriangulo2} cms, ${baseTriangulo} cms.`);
-console.log(`La altura del triángulo es de ${alturaTriangulo} cms.`)
-
-const perimetroTriangulo = ladoTriangulo1 + ladoTriangulo2 + baseTriangulo;
-console.log(`El perímetro del triángulo es: ${perimetroTriangulo} cms.`);
-
-const areaTriangulo = (baseTriangulo * alturaTriangulo)/2;
-console.log(`El área del cuadrado es: ${areaTriangulo} cms cuadrados.`);
-console.groupEnd();
+const perimetroTriangulo = (lado, base) => lado + lado + base;
+const areaTriangulo = (lado, base) => {
+    const alturaTriangulo = Math.sqrt(lado**2 - base**2/4);
+    return (base * alturaTriangulo)/2;
+}
 
 // Código círculo
-console.group("Círculo");
-// Radio
-const radioCirculo = 4;
-// Diámetro
-const diametroCirculo = radioCirculo * 2;
-const perimetroCirculo = (2 * Math.PI * radioCirculo).toFixed(2);
-const areaCirculo = (Math.PI * radioCirculo**2).toFixed(2);
-
-console.log(`El radio del círculo es: ${radioCirculo} cms.`);
-console.log(`El diámetro del círculo es: ${diametroCirculo} cms.`);
-console.log(`El perímetro del círculo es: ${perimetroCirculo} cms.`);
-console.log(`El área del círculo es: ${areaCirculo} cms cuadrados.`);
-
-console.groupEnd()
+const diametroCirculo = radio => radio * 2;
+const perimetroCirculo = radio => diametroCirculo(radio) * Math.PI;
+const areaCirculo = radio => Math.PI * radio**2;
